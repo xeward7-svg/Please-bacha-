@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mela Rashuuu Babyyy 🥺🎀</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f14;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 70px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+button {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff4d6d, #ff758c);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 85%;
+  max-width: 280px;
+  border-radius: 16px;
+  margin: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* animations */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* typing */
+#typing {
+  border-right: 2px solid #ff758c;
+  padding-right: 5px;
+}
+
+/* hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-900px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<div class="section">
+  <h1>Mela Rashuuu Babyyy 🥺🎀</h1>
+  <p>I made this for you… please read it once 🥺</p>
+  <button onclick="start()">Click here</button>
+</div>
+
+<div id="content" style="display:none">
+
+<div class="section fade">
+  <h2>Us…</h2>
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <p>These moments still mean everything to me, Rashuu…</p>
+</div>
+
+<div class="section fade">
+  <h2>I just want to say…</h2>
+  <p id="typing"></p>
+</div>
+
+<div class="section fade">
+  <p>No matter what you decide… I’ll respect it, Rashuu ❤️</p>
+</div>
+
+</div>
+
+<script>
+function start() {
+  document.getElementById("content").style.display = "block";
+  document.getElementById("music").play();
+
+  let sections = document.querySelectorAll('.fade');
+  sections.forEach((sec, i) => {
+    setTimeout(() => {
+      sec.classList.add('show');
+    }, i * 800);
+  });
+
+  typeText();
+  hearts();
+}
+
+let text = `I know I messed up, and I’m not here to force anything.
+I just want you to know that bacha 🥺 you matter to me more than my ego (which I don’t even have 😭😭), more than any argument.
+If you still feel there’s even a small chance for us, I’m willing to fix things… slowly, properly.
+I love you so much, mela bacha 🥺🥺`;
+
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 40);
+  }
+}
+
+function hearts() {
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 18 + 12) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
